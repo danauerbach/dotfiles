@@ -75,30 +75,10 @@ source /Library/PostgreSQL/9.4/pg_env.sh
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
-export PS1="${Blue}\$(parse_git_branch)${White}${On_Red}@\h:${Color_Off}${BGreen}\w \!> ${Color_Off}"
-# export PS1=" ${BBlack}$(parse_git_branch)${Color_Off}\u@\h:${BGreen}\w \!: ${Color_Off}"
-# export PS1="\u@\h\[\033[32m\]\[\033[33m\]\$(parse_git_branch)\[\033[00m\] \w $ "
-
-
-# PS1="${bold}[\u@\h ${bold} \w ${bold}\#] \$${reset} "
-# export PS1
-
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export PS1="\u@\h \$(parse_git_branch) :\w \!> "
 
 IDA_MSGQ_HOSTNAME=idaprog.ucsd.edu
 export IDA_MSGQ_HOSTNAME
 
-# added by Miniconda3 3.19.0 installer
-# export PATH="/Users/dauerbach/miniconda3/bin:$PATH"
-
-# Setting PATH for Python 3.4
-# The orginal version is saved in .bash_profile.pysave
-# PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
-# export PATH
-
-# Setting PATH for Python 3.5
-# The orginal version is saved in .bash_profile.pysave
-# PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
-# export PATH
