@@ -57,22 +57,24 @@ reset=$(tput sgr0)
 
 export CLICOLOR=true
 
-export PATH=$PATH:/Library/PostgreSQL/9.4/bin
 export PATH=/usr/local/bin:$PATH:/usr/local/sbin:/usr/local/packer
-export PATH=$PATH:$HOME/Qt-5.6.0/bin:$HOME/miniconda3/bin
 
 export GEOS_DIR=~/dev/lib
 
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home
-export JAVA_JRE=//Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk
-export JRE_HOME=$(/usr/libexec/java_home)
+if [ $HOSTNAME == 'dauerbach' ]; then
+    export PATH=$PATH:/Library/PostgreSQL/9.4/bin
+    export PATH=$PATH:$HOME/Qt-5.6.0/bin:$HOME/miniconda3/bin
+    export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home
+    export JAVA_JRE=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk
+    export JRE_HOME=$(/usr/libexec/java_home)
+    [ -r /Library/PostgreSQL/9.4/pg_env.sh ] && source /Library/PostgreSQL/9.4/pg_env.sh
+fi
 
 source ~/.profile
 source ~/.bash_aliases
+source ~/.bash_idavms
 
-source /Library/PostgreSQL/9.4/pg_env.sh
 
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 parse_git_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
