@@ -1,7 +1,6 @@
-source /ida/local/bashrc
-
-
-export PATH=/ida/local/scripts:/ida/local/bin:$PATH
-export PYTHONPATH=~/dev/dcc/modules-py:$PYTHONPATH
-
+if [[ "$HOSTNAME" =~ ^ida ]]; then
+    source /ida/local/bashrc
+    export PATH=/ida/local/scripts:/ida/local/bin:$PATH
+    export PYTHONPATH=~/dev/dcc/modules-py:$PYTHONPATH
+fi
 

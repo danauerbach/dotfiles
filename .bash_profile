@@ -1,8 +1,18 @@
 #!/bin/bash
 
-source ~/.bash_functions
+if [ "$HOSTNAME" == "dauerbach" ]; then
+    export PATH=$PATH:/Library/PostgreSQL/9.4/bin
+    export PATH=$PATH:$HOME/Qt-5.6.0/bin:$HOME/miniconda3/bin
+    export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home
+    export JAVA_JRE=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk
+    export JRE_HOME=$(/usr/libexec/java_home)
+    [ -r /Library/PostgreSQL/9.4/pg_env.sh ] && source /Library/PostgreSQL/9.4/pg_env.sh
+fi
 
-# Added by install_latest_perl_osx.pl
+source ~/.profile
+source ~/.bash_aliases
+source ~/.bash_idavms
+source ~/.bash_functions
 [ -r /Users/dauerbach/.bashrc ] && source /Users/dauerbach/.bashrc
 
 las () { la | sort --key=9 ;}
@@ -56,31 +66,12 @@ bold=$(tput bold) # This could also be a color.
 reset=$(tput sgr0)
 
 export CLICOLOR=true
-
 export PATH=/usr/local/bin:$PATH:/usr/local/sbin:/usr/local/packer
-
 export GEOS_DIR=~/dev/lib
-
-if [ $HOSTNAME == 'dauerbach' ]; then
-    export PATH=$PATH:/Library/PostgreSQL/9.4/bin
-    export PATH=$PATH:$HOME/Qt-5.6.0/bin:$HOME/miniconda3/bin
-    export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home
-    export JAVA_JRE=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk
-    export JRE_HOME=$(/usr/libexec/java_home)
-    [ -r /Library/PostgreSQL/9.4/pg_env.sh ] && source /Library/PostgreSQL/9.4/pg_env.sh
-fi
-
-source ~/.profile
-source ~/.bash_aliases
-source ~/.bash_idavms
-
-
 
 parse_git_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 export PS1="\u@\h \$(parse_git_branch) :\w \!> "
-
-IDA_MSGQ_HOSTNAME=idaprog.ucsd.edu
-export IDA_MSGQ_HOSTNAME
+export IDA_MSGQ_HOSTNAME=idaprog.ucsd.edu
 

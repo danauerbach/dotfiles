@@ -11,7 +11,7 @@ isIn () {
 
 # lets set PATH with pathadd()
 function pathadd () {
-	if ! echo $PATH | /bin/egrep -q "(^|:)$1($|:)" ; then
+	if ! echo $PATH | egrep -q "(^|:)$1($|:)" ; then
 		if [ "$2" = "after" ] ; then
 			PATH=$PATH:$1
 		else
