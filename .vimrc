@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/bundle')
 
 Plug 'scrooloose/nerdtree'
+Plug 'wincent/command-t'
 
 " Git support
 Plug 'tpope/vim-fugitive'
@@ -11,12 +12,18 @@ Plug 'vim-airline/vim-airline'
 
 "Python code folding
 Plug 'tmhedberg/SimpylFold'
+" better Ppython indenting
 
+Plug 'vim-scripts/indentpython.vim'
 call plug#end()
+ 
+nmap <leader>n :NERDTreeToggle<CR>
+let NERDTreeMapActivateNode='right'
 
-map <C-n> :NERDTreeToggle<CR>
+map <leader>reload :source ~/.vimrc<CR>
 
 syntax on
+filetype on
 
 set encoding=utf-8
 
@@ -25,6 +32,8 @@ set listchars=tab:→\ ,trail:·,eol:˧
 set list
 
 set showmode
+" show matching parens
+
 set showmatch
 
 " enable all Python syntax highlighting features
@@ -36,13 +45,19 @@ set foldlevel=99
 
 set statusline+=%#warningmsg#
 set statusline+={fugitive#statusline()}
+set statusline+={SyntasticStatuslineFlag()}
 set statusline+=%*
 
 " Tab stuff
 set expandtab
-set tabstop=4
-set shiftwidth=4
+set tabstop=3
+set shiftwidth=3
 set autoindent
+
+" python specifics
+au BufNewFile,BufRead *.py set tabstop=4 shiftwidth=4 
+highlight BadWhitespace ctermbg=red guibg=red
+au BufRead,BufNewFile *.py match BadWhitespace /\s\+$/
 
 set ttimeout
 set ttimeoutlen=20
@@ -53,6 +68,7 @@ set cursorline
 set number
 set noruler
 set laststatus=2
+set colorcolumn=90
 
 " Split config
 set splitbelow
@@ -67,12 +83,13 @@ let g:SimpylFold_docstring_preview = 1
 " increase vim-plug timeout values for large installs like YCM
 let g:plug_timeout = 600
 " Some syntastic defaults
-let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_python_checkers = ['pyflakes', 'python']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_error_symbol = '❌'
+let g:syntastic_aggregate_errors = 1
 highlight link SyntasticErrorSign SignColumn
 highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
