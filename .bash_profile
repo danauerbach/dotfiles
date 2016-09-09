@@ -9,9 +9,13 @@ if [ "$HOSTNAME" == "dauerbach" ]; then
     [ -r /Library/PostgreSQL/9.4/pg_env.sh ] && source /Library/PostgreSQL/9.4/pg_env.sh
 fi
 
-[ -r /Users/dauerbach/.profile ] & &source ~/.profile
+idavms="idadcc idahub idadb ida-staging idaprog"
+
+[ -r /Users/dauerbach/.profile ] && source ~/.profile
 source ~/.bash_aliases
-source ~/.bash_idavms
+if [[ "$idavms" =~ (^|[[:space:]])"$HOSTNAME"($|[[:space:]]) ]]; then
+   source ~/.bash_idavms
+fi
 source ~/.bash_functions
 [ -r /Users/dauerbach/.bashrc ] && source /Users/dauerbach/.bashrc
 
