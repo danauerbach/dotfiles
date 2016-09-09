@@ -9,7 +9,7 @@ if [ "$HOSTNAME" == "dauerbach" ]; then
     [ -r /Library/PostgreSQL/9.4/pg_env.sh ] && source /Library/PostgreSQL/9.4/pg_env.sh
 fi
 
-source ~/.profile
+[ -r /Users/dauerbach/.profile ] & &source ~/.profile
 source ~/.bash_aliases
 source ~/.bash_idavms
 source ~/.bash_functions
