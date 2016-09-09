@@ -81,6 +81,7 @@ set splitright
 
 " airline config
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 " SimplFold config
 let g:SimpylFold_docstring_preview = 1
