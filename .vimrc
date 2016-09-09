@@ -21,7 +21,7 @@ Plug 'directionalWindowResizer'
 
 Plug 'vim-scripts/indentpython.vim'
 call plug#end()
- 
+
 nmap <leader>n :NERDTreeToggle<CR>
 let NERDTreeMapActivateNode='right'
 
@@ -31,6 +31,7 @@ syntax on
 filetype on
 
 set encoding=utf-8
+set backspace=start,indent,eol
 
 " show invisibles˧
 set listchars=tab:→\ ,trail:·,eol:˧
@@ -38,7 +39,6 @@ set list
 
 set showmode
 " show matching parens
-
 set showmatch
 
 " enable all Python syntax highlighting features
@@ -99,4 +99,3 @@ highlight link SyntasticErrorSign SignColumn
 highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
-
