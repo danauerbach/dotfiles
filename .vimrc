@@ -14,6 +14,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'tmhedberg/SimpylFold'
 " better Ppython indenting
 
+" window resizing
+Plug 'directionalWindowResizer'
+
 Plug 'vim-scripts/indentpython.vim'
 call plug#end()
  
