@@ -5,6 +5,8 @@ Plug 'wincent/command-t'
 
 " Git support
 Plug 'tpope/vim-fugitive'
+" surround support
+Plug 'tpope/vim-surround'
 
 Plug 'scrooloose/syntastic'
 
