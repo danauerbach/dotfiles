@@ -22,3 +22,4 @@ alias wc='wc -l'
 alias jn='jupyter notebook'
 
 alias mntida='sudo mount -t nfs igppixs1.ucsd.edu:/mnt/vol1/ida /ida'
+alias umntida='sudo umount /ida'
