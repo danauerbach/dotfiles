@@ -10,8 +10,6 @@ alias du='du -cbsh'
 
 alias grep="grep --color=auto"
 
-alias nv='nvim'
-
 alias h4='head -n 4'
 alias t4='tail -n 4'
 alias h10='head -n 10'
@@ -26,3 +24,4 @@ alias umntida='sudo umount /ida'
 
 alias ml='matlab -nodesktop -nosplash'
 alias ssidadcc='ssh -Y idadcc'
+alias idb='cd /ida/dcc/db; tcsh'
