@@ -25,3 +25,7 @@ alias umntida='sudo umount /ida'
 alias ml='matlab -nodesktop -nosplash'
 alias ssidadcc='ssh -Y idadcc'
 alias idb='cd /ida/dcc/db; tcsh'
+
+alias gs='git status'
+alias gl='git log'
+
