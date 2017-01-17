@@ -1,12 +1,13 @@
+function parse_git_branch() {
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+
+function las () { ls -aSl $1 ;}
+
 function mkcd (){
 	mkdir -p $1
 	cd $1
-}
-
-isIn () {
-  local e
-    for e in "${@:2}"; do [[ "$e" == "$1" ]] && return 0; done
-	   return 1
 }
 
 # lets set PATH with pathadd()
@@ -21,6 +22,7 @@ function pathadd () {
 }
 
 
+# WORK IN PROGRESS
 function modpaths() {
 	varcnt=$#
 	pathlistvar=$1
@@ -96,18 +98,3 @@ function modpaths() {
 	fi
 }
 
-function tt () {
-	av1=asd
-	av2=cvb
-	av3=asd
-	if [ "$av1" = "$av2" ]
-	then
-		echo "av1 = av2"
-	elif [ "$av2" = "$av3" ]
-	then
-		echo "av2 = av3"
-	elif [ "$av3" = "$av1" ]
-	then
-		echo "av3 = av1"
-	fi
-}

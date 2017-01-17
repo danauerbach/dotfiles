@@ -1,0 +1,8 @@
+export CVSROOT=/ida/src/ida
+export CVSREAD=1
+
+osname=`uname -s`
+osvers=`uname -r`
+osarch=`uname -m`
+
+export PLATFORM=$osname.$osvers.$osarch 

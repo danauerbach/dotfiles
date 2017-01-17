@@ -4,9 +4,12 @@ alias idahome='sshfs dauerbach@idadcc.ucsd.edu:/home/dauerbach ~/idadcc-home'
 alias idaproghome='sshfs dauerbach@idaprog.ucsd.edu:/home/dauerbach ~/idaprog-home'
 alias la='ls -lha'
 alias ll='ls -hl'
+alias las='ls -aSl'
 alias lt='ls -hlaT'
 alias l.='ls -hlda .*'
-alias du='du -cbsh'
+#alias du='du -cbsh'
+
+alias rmd='rm -rf'
 
 alias grep="grep --color=auto"
 
