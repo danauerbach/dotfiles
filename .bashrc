@@ -14,23 +14,23 @@ export GEOS_DIR=~/dev/lib
 export PATH=$PATH:$GOPATH/bin
 
 export GOPATH=$HOME/gowork
+export PATH=~/bin:$PATH
 export PATH=~/anaconda3/bin:$PATH
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
-eval "$(direnv hook bash)"
 
 
 if [[ "$HOSTNAME" =~ ^dauerbach ]]; then
 	export PYTHONPATH=~/dev/dcc/dcc-modules-py:$PYTHONPATH
+	eval "$(direnv hook bash)"
 fi
 
 if [[ "$HOSTNAME" =~ ^ida ]]; then
-    source /ida/local/bashrc
     export PATH=/ida/local/scripts:/ida/local/bin:$PATH
     export PYTHONPATH=~/dev/dcc/modules-py:$PYTHONPATH
 
     # pull in ida specific env startup files
-    rcfiles=(/ida/local/bashrc)
+    rcfiles=(/ida/local/bashrc /ida/local/devenv.sh)
     for rcfile in $rcfiles
     do
        if [ -f $rcfile ] ; then

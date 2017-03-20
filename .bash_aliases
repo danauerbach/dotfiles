@@ -7,7 +7,10 @@ alias ll='ls -hl'
 alias las='ls -aSl'
 alias lt='ls -hlaT'
 alias l.='ls -hlda .*'
-#alias du='du -cbsh'
+alias du='du -h'
+
+alias ct='sudo crontab -l'
+alias cte='sudo crontab -e'
 
 alias rmd='rm -rf'
 

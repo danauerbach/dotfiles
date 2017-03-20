@@ -1,8 +1,12 @@
 export CVSROOT=/ida/src/ida
 export CVSREAD=1
 
-osname=`uname -s`
-osvers=`uname -r`
-osarch=`uname -m`
+export OSNAME=`uname -s | tr "[a-z]" "[A-Z]"`
+export OSVERS=`uname -r | tr "[a-z]" "[A-Z]"`
+export OSTYPE="SRV4"
+
+export RANLIB=/usr/bin/ranlib
+export XML2INCS=/usr/local/Cellar/libxml2/2.9.4_2/include/libxml2/libxml
+export XML2LIB=/usr/local/Cellar/libxml2/2.9.4_2/lib/libxml2.a
 
 export PLATFORM=$osname.$osvers.$osarch 

@@ -10,17 +10,18 @@ function mkcd (){
 	cd $1
 }
 
-# lets set PATH with pathadd()
-function pathadd () {
-	if ! echo $PATH | egrep -q "(^|:)$1($|:)" ; then
-		if [ "$2" = "after" ] ; then
-			PATH=$PATH:$1
-		else
-			PATH=$1:$PATH
+# lets set PATH with pathadd() if it doesn't already exist (like from IDA startup files)
+if [ -z "`declare -f pathadd`" ]; then
+	function pathadd () {
+		if ! echo $PATH | grep -q "(^|:)$1($|:)" ; then
+			if [ "$2" = "after" ] ; then
+				PATH=$PATH:$1
+			else
+				PATH=$1:$PATH
+			fi
 		fi
-	fi
-}
-
+	}
+fi
 
 # WORK IN PROGRESS
 function modpaths() {
