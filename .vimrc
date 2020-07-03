@@ -23,7 +23,7 @@ Plug 'tmhedberg/SimpylFold'
 Plug 'vim-scripts/indentpython.vim'
 
 " window resizing
-Plug 'directionalWindowResizer'
+Plug '/vim-scripts/directionalWindowResizer'
 
 call plug#end()
 
