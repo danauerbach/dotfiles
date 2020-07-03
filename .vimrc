@@ -58,7 +58,7 @@ set encoding=utf-8
 set backspace=start,indent,eol
 
 " show invisibles˧
-set listchars=tab:→\ ,trail:·,eol:˧
+set listchars=tab:→\ ,trail:·,eol:
 set list
 
 set showmode
@@ -81,7 +81,7 @@ set shiftwidth=4
 set autoindent
 
 " python specifics
-au BufNewFile,BufRead *.py set tabstop=4 shiftwidth=4 
+au BufNewFile,BufRead *.py set tabstop=4 shiftwidth=4
 highlight BadWhitespace ctermbg=red guibg=red
 au BufRead,BufNewFile *.py match BadWhitespace /\s\+$/
 
